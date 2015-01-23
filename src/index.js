@@ -31,8 +31,12 @@ var prove = function(options, callback) {
   var from = options.from;
   var to = options.to;
   var data = new Buffer(from + header + to, "utf8");
+  if (from.length < 1 || to.length < 1) {
+    callback("one sided", false);
+    return;
+  }
   if (data.length > 40) {
-    callback("too large", false);
+    callback("too much", false);
     return;
   };
   var address = options.address;
@@ -82,12 +86,12 @@ var prove = function(options, callback) {
 var scanHex = function(hexData) {
   var bufferData = new Buffer(hexData, "hex");
   var message = bufferData.toString('utf8');
+  if (message.indexOf(header) < 1) {
+    return false;
+  }
   var parsedMessage = message.split(header);
   var from = parsedMessage[0];
   var to = parsedMessage[1];
-  if (from.length < 1 && to.length < 1) {
-    return false;
-  }
   return {
     from: from,
     to: to
