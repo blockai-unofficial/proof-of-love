@@ -1,0 +1,26 @@
+{
+  "name": "proof-of-love",
+  "version": "0.0.0",
+  "description": "Declare your love for all time on the blockchain.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/blockai/proof-of-love.git"
+  },
+  "keywords": [
+    "bitcoin",
+    "blockchain",
+    "love",
+    "bitcoinjs-lib",
+    "helloblock"
+  ],
+  "author": "William Cotton",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/blockai/proof-of-love/issues"
+  },
+  "homepage": "https://github.com/blockai/proof-of-love"
+}
