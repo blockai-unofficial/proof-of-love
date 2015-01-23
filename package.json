@@ -1,10 +1,11 @@
 {
   "name": "proof-of-love",
-  "version": "0.0.0",
+  "version": "0.1.0",
   "description": "Declare your love for all time on the blockchain.",
-  "main": "index.js",
+  "main": "./src/index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "./node_modules/.bin/jasmine-node test/ --forceexit --verbose --captureExceptions",
+    "test-dev": "./node_modules/.bin/jasmine-node test/ --verbose --autotest --captureExceptions --color --watch src/"
   },
   "repository": {
     "type": "git",
@@ -22,5 +23,12 @@
   "bugs": {
     "url": "https://github.com/blockai/proof-of-love/issues"
   },
-  "homepage": "https://github.com/blockai/proof-of-love"
+  "homepage": "https://github.com/blockai/proof-of-love",
+  "dependencies": {
+    "bitcoinjs-lib": "^1.4.3"
+  },
+  "devDependencies": {
+    "helloblock-js": "^0.2.5",
+    "jasmine-node": "^1.14.5"
+  }
 }
