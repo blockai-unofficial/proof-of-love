@@ -76,6 +76,16 @@ describe("proof-of-love", function() {
     });
   });
 
+  it("should even find love in hex", function(done) {
+    var from = "one";
+    var to = "another";    
+    var hex = "6f6e65e299a5616e6f74686572";
+    var scan = love.scanHex(hex);
+    expect(scan.from).toBe(from);
+    expect(scan.to).toBe(to);
+    done();
+  });
+  
   it("should not allow too much love", function(done) {
     var from = "one";
     var to = "another that is waaaaay tooooo much";

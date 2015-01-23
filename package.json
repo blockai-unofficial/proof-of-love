@@ -1,6 +1,6 @@
 {
   "name": "proof-of-love",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "Declare your love for all time on the blockchain.",
   "main": "./src/index.js",
   "scripts": {

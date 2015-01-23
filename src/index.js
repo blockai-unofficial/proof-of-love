@@ -79,31 +79,43 @@ var prove = function(options, callback) {
   });
 };
 
+var scanHex = function(hexData) {
+  var bufferData = new Buffer(hexData, "hex");
+  var message = bufferData.toString('utf8');
+  var parsedMessage = message.split(header);
+  var from = parsedMessage[0];
+  var to = parsedMessage[1];
+  if (from.length < 1 && to.length < 1) {
+    return false;
+  }
+  return {
+    from: from,
+    to: to
+  }
+};
+
 var scan = function(tx, callback) {
-  var message;
+  var hexData;
   tx.outputs.forEach(function(output) {
     if (output.type == 'nulldata') {
       var scriptPubKey = output.scriptPubKey;
       if (scriptPubKey.slice(0,2) == "6a") {
-        var data = scriptPubKey.slice(4, 84);
-        var bufferData = new Buffer(data, "hex");
-        message = bufferData.toString('utf8');
+        hexData = scriptPubKey.slice(4, 84);
       }
     }
   });
-  var parsedMessage = message.split(header);
-  var from = parsedMessage[0];
-  var to = parsedMessage[1];
-  if (parsedMessage.length == 2 && from.length > 0 && to.length > 0) {
-    tx.from = from;
-    tx.to = to;
+  var scan = scanHex(hexData);
+  if (scan) {
+    tx.from = scan.from;
+    tx.to = scan.to;
   }
-  callback(false, tx)
+  callback(false, tx);
 };
 
 var love = {
   prove: prove,
-  scan: scan
+  scan: scan,
+  scanHex: scanHex
 }
 
 module.exports = love;
