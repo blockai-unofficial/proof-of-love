@@ -3,6 +3,10 @@ Proof of Love
 
 Declare your love for all time on the blockchain.
 
+```
+npm install proof-of-love
+```
+
 Proving our Love
 ---
 
