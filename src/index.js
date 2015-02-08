@@ -48,6 +48,9 @@ var prove = function(options, callback) {
   var unspentValue = 0;
   for (var i = unspentOutputs.length - 1; i >= 0; i--) {
     var unspentOutput = unspentOutputs[i];
+    if (unspentOutput.value === 0) {
+      continue;
+    }
     unspentValue += unspentOutput.value;
     tx.addInput(unspentOutput.txHash, unspentOutput.index);
     if (unspentValue - fee >= 0) {
