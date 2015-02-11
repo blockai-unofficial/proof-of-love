@@ -3,6 +3,8 @@ Proof of Love
 
 Declare your love for all time on the blockchain.
 
+Here's an [example](https://www.blockai.com/tx/2756d3fec97c76227171c88d568b7e524b45f129e642e6c9b5b8dcff50e4a091) of how Proof of Love is presented Blockai.
+
 ```
 npm install proof-of-love
 ```
@@ -88,3 +90,5 @@ getTransaction(txHash, function(err, tx) {
   });
 });
 ```
+
+You can then [see your Proof of Love on Blockai](https://www.blockai.com/tx/2756d3fec97c76227171c88d568b7e524b45f129e642e6c9b5b8dcff50e4a091).
