@@ -84,6 +84,8 @@ love.prove({
 Finding Love
 ---
 
+Parse a Bitcoin transaction for Proof of Love metadata.
+
 ```javascript
 var txHash = "2756d3fec97c76227171c88d568b7e524b45f129e642e6c9b5b8dcff50e4a091";
 getTransaction(txHash, function(err, tx) {
